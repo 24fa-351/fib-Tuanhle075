@@ -3,21 +3,30 @@
 #include <string.h>
 
 int fibRec(int n){
-   if (n<2){
-      return n;
+   if (n==1){
+      return 0;
+   }
+   else if (n==2 ||n==3){
+      return 1;
    }
    else{
       return (fibRec(n-1)+fibRec(n-2));
    }
 }
 int fibIter(int n){
-   int terms[50]={0,1};
+   if (n==1){
+      return 0;
+   }
+   else if (n==2 ||n==3){
+      return 1;
+   }
+   int terms[100]={0,1};
    int i=2;
-   while (i<=n){
+   while(i<=n-1){
       terms[i]=(terms[i-1]+terms[i-2]);
       i=i+1;
    }
-   return terms[n];
+   return terms[n-1];
 }
 
 int main(int argc, char** argv){
